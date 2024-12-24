@@ -1,6 +1,7 @@
 import useJobAppStore from "@/store";
 import { educationBackgroundSchema } from "@/validationSchema";
 import { useState } from "react";
+import { z } from "zod";
 
 function AddressInfo()
 {
@@ -34,14 +35,21 @@ function AddressInfo()
             educationBackgroundSchema.parse(formData.educationBackground);
             setError("");
             nextStep();
-        } catch (error: any)
+        } catch (error)
         {
-            setError(
-                error.errors[0]?.message ||
-                "Please fill in the educations field correctly."
-            );
+            if (error instanceof z.ZodError)
+            {
+                setError(
+                    error.errors[0]?.message ||
+                    "Please fill in the education field correctly."
+                );
+            } else
+            {
+                setError("An unexpected error occurred.");
+            }
         }
     };
+
 
     return (
         <div>

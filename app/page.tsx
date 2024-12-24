@@ -28,15 +28,12 @@ export default function Home()
   };
 
   return (
-    <div className="flex justify-center py-10">
+    <div className="flex justify-center items-center h-screen py-10">
       <div className="bg-gray-100 rounded-lg w-full p-10 mx-5">
         <div className="pt-2 mb-5 text-center text-2xl sm:text-3xl font-semibold">
           Job Application
         </div>
-        {/* progress bar */}
         <ProgressBar />
-
-        {/* steps */}
         <div>{renderStep()}</div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import useJobAppStore from "@/store";
 import { personalInfoSchema } from "@/validationSchema";
+import { z } from "zod";
 import { useState } from "react";
 
 function PersonalInfo()
@@ -20,11 +21,17 @@ function PersonalInfo()
             personalInfoSchema.parse(formData.personalInfo);
             setError("");
             nextStep();
-        } catch (error: any)
+        } catch (error)
         {
-            setError(
-                error.errors[0]?.message || "Please fill all teh fields correctly."
-            );
+            if (error instanceof z.ZodError)
+            {
+                setError(
+                    error.errors[0]?.message || "Please fill all the fields correctly."
+                );
+            } else
+            {
+                setError("An unexpected error occurred.");
+            }
         }
     };
 

@@ -1,11 +1,13 @@
 import useJobAppStore from "@/store";
 import { experienceinfoSchema } from "@/validationSchema";
 import { useState } from "react";
+import { z } from "zod";
 
 function AdditionalInfo()
 {
     const { nextStep, prevStep, formData, setExperienceInfo } = useJobAppStore();
     const [error, setError] = useState<string>("");
+
 
     const validateAndNext = () =>
     {
@@ -14,15 +16,20 @@ function AdditionalInfo()
             experienceinfoSchema.parse(formData.experienceInfo);
             setError("");
             nextStep();
-        } catch (error: any)
+        } catch (error)
         {
-            setError(
-                error.errors[0]?.message ||
-                "Please fill in the experience field correctly."
-            );
+            if (error instanceof z.ZodError)
+            {
+                setError(
+                    error.errors[0]?.message ||
+                    "Please fill in the experience field correctly."
+                );
+            } else
+            {
+                setError("An unexpected error occurred.");
+            }
         }
     };
-
     return (
         <div>
             <h2 className="text-xl font-semibold">Additional Information</h2>
