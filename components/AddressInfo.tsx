@@ -1,5 +1,5 @@
 import useJobAppStore from "@/store";
-import { educationBackgroundSchema, Educations } from "@/validationSchema";
+import { educationBackgroundSchema } from "@/validationSchema";
 import { useState } from "react";
 
 function AddressInfo()

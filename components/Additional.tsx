@@ -52,7 +52,7 @@ function AdditionalInfo()
                             className="h-4 w-4 text-blue-600 bg-gray-300 ruonded focus:ring-blue-500"
                         />
                         <span className="ml-2 text-sm text-gray-700">
-                            Yes, I am a fresher
+                            Yes, I am a Willing to Re-locate
                         </span>
                     </div>
                 </div>
