@@ -79,7 +79,7 @@ function ReviewSubmit()
                         {"\u2190"} Previous
                     </button>
                 </div>
-            </div>) : <p className="text-center text-[50px]">Thank You For Appying</p>}
+            </div>) : <p className="text-center text-[50px] font-sans md:font-serif">Thank You For Appying!!</p>}
             {submit ? <button
                 className="text-white bg-blue-500 px-3 py-1 rounded-lg text-lg sm:text-xl mt-5"
                 onClick={onSubmitForm}
