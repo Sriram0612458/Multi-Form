@@ -2,7 +2,7 @@ import useJobAppStore from "@/store";
 import { experienceinfoSchema } from "@/validationSchema";
 import { useState } from "react";
 
-function ExperienceInfo()
+function AdditionalInfo()
 {
     const { nextStep, prevStep, formData, setExperienceInfo } = useJobAppStore();
     const [error, setError] = useState<string>("");
@@ -72,4 +72,4 @@ function ExperienceInfo()
     );
 }
 
-export default ExperienceInfo;
+export default AdditionalInfo;

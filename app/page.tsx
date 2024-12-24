@@ -1,6 +1,6 @@
 "use client";
 import AddressInfo from "@/components/AddressInfo";
-import ExperienceInfo from "@/components/ExperienceInfo";
+import AdditionalInfo from "@/components/Additional";
 import PersonalInfo from "@/components/PersonalInfo";
 import ProgressBar from "@/components/ProgressBar";
 import ReviewSubmit from "@/components/ReviewSubmit";
@@ -19,7 +19,7 @@ export default function Home()
       case 2:
         return <AddressInfo />;
       case 3:
-        return <ExperienceInfo />;
+        return <AdditionalInfo />;
       case 4:
         return <ReviewSubmit />;
       default:
