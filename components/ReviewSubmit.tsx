@@ -30,7 +30,7 @@ function ReviewSubmit()
                 </div>
             </div>
             <div>
-                <h3 className="text-lg font-semibold">Address Background</h3>
+                <h3 className="text-lg font-semibold">Address Information</h3>
                 {formData.educationBackground.educations?.map((e, idx) => (
                     <div
                         className="grid gap-6 mb-6 mt-2 md:grid-cols-2 border p-2 border-gray-300 rounded-lg"
@@ -53,31 +53,11 @@ function ReviewSubmit()
             </div>
 
             <div>
-                <h3 className="text-lg font-semibold">Experience Information</h3>
+                <h3 className="text-lg font-semibold">Additional Information</h3>
                 {formData.experienceInfo.fresher ? (
-                    <p>fresher</p>
+                    <p>Yes, Willing to Relocate</p>
                 ) : (
-                    <div>
-                        {formData.experienceInfo.experiences?.map((e, idx) => (
-                            <div
-                                className="grid gap-6 mb-6 mt-2 md:grid-cols-2 border p-2 border-gray-300 rounded-lg"
-                                key={idx}
-                            >
-                                <p>
-                                    <span className="font-semibold">Company Name:</span>
-                                    {e.companyName}
-                                </p>
-                                <p>
-                                    <span className="font-semibold">Number of Years Worked:</span>
-                                    {e.numberOfYears}
-                                </p>
-                                <p>
-                                    <span className="font-semibold">Description:</span>
-                                    {e.description}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
+                    ""
                 )}
             </div>
 

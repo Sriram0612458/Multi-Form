@@ -13,25 +13,10 @@ export const personalInfoSchema = z.object({
 export const experienceinfoSchema = z
     .object({
         fresher: z.boolean(),
-        experiences: z
-            .array(
-                z.object({
-                    numberOfYears: z
-                        .string()
-                        .min(1, "Number of years is required")
-                        .refine((value) => !isNaN(Number(value)) && Number(value) > 0, {
-                            message:
-                                "Please enter a number greater than 0 for Number of years.",
-                        }),
-                    companyName: z.string().min(3, "Company name is required"),
-                    description: z.string().min(3, "Description is required"),
-                })
-            )
-            .optional(),
     })
     .refine((data) =>
     {
-        return data.fresher || (data.experiences && data.experiences.length > 0);
+        return data.fresher;
     });
 
 export const educationBackgroundSchema = z.object({
@@ -64,10 +49,4 @@ export type Educations = {
     courseName: string;
     schoolName: string;
     yearOfCompletion: string;
-}[];
-
-export type Experiences = {
-    numberOfYears: string;
-    companyName: string;
-    description: string;
 }[];
